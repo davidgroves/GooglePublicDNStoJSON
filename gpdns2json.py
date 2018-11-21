@@ -47,10 +47,10 @@ if __name__ == "__main__":
                 agg_dns_prefixes[k] = [str(i) for i in v]
         elif not args.noagg:
             if args.ipv6brackets:
-                agg_dns_prefixes[k] = [f"[{str(i.ip)}]/{i.prefixlen}" if i.version == 6 else str(i) for i in netaddr.cidr_merge(v)]
+                agg_dns_prefixes[k] = [f"[{str(i.ip)}]/{i.prefixlen}" if i.version == 6 else str(i) for i in
+                                       netaddr.cidr_merge(v)]
             else:
                 agg_dns_prefixes[k] = [str(i) for i in netaddr.cidr_merge(v)]
-
 
     if args.csvlistonly or args.listonly:
         output_lists = agg_dns_prefixes.values()
