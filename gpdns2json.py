@@ -10,7 +10,7 @@ import argparse
 def get_dns():
     my_resolver = dns.resolver.Resolver()
     my_resolver.nameservers = ['8.8.8.8', '8.8.4.4']
-    answers = my_resolver.query("locations.publicdns.goog", "TXT")
+    answers = my_resolver.resolve("locations.publicdns.goog", "TXT", search=True)
 
     dns_prefixes = collections.defaultdict(list)
     for rdata in answers:
